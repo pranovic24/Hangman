@@ -100,7 +100,7 @@ public class Hangman {
             // Print Misses
             System.out.print("Misses:\t");
             printMissedGuesses(missedGuesses);
-            System.out.print("\n");
+            System.out.print("\n\n");
 
             System.out.print("Guess:\t");
             // there is no scan.nextChar
@@ -116,6 +116,18 @@ public class Hangman {
                 // System.out.println(Arrays.toString(missedGuesses));
                 missedChances++;
             }
+
+            // System.out.println(Arrays.toString(placeholders));
+            // System.out.println(word + " " + Arrays.toString(word.toCharArray()));
+            if (Arrays.equals(placeholders, word.toCharArray())) {
+                System.out.println(gallows[missedChances]);
+                System.out.print("Word:\t");
+                printPlaceholders(placeholders);
+                System.out.print("\n");
+                System.out.println("GOOD WORK!");
+                break;
+            }
+
             
 
         }
