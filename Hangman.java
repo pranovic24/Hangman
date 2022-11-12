@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Hangman {
@@ -73,12 +74,12 @@ public class Hangman {
         Scanner scan = new Scanner(System.in);
 
         String word = randomWord();
-
         // Need to replace the word with '_'
         char[] placeholders = new char[word.length()];
         for (int i = 0; i < placeholders.length; i++) {
             placeholders[i] = '_';
         }
+        // System.out.println(Arrays.toString(placeholders));
 
         int missedChances = 0;
         int lives = gallows.length - 1; 
@@ -88,6 +89,8 @@ public class Hangman {
         while (missedChances < lives) {
             // Print Gallows
             System.out.println(gallows[missedChances]);
+            // for testing
+            System.out.println(word);
 
             // Print Word placeholder
             System.out.print("Word:\t");
@@ -105,14 +108,16 @@ public class Hangman {
             System.out.print("\n");
             
             // Checking guess with the word
-            // if (checkGuess(word, guess)) {
+            if (checkGuess(word, guess)) {
+                updatePlaceholders(guess, placeholders, word);
+                printPlaceholders(placeholders);
+            } else {
+                missedGuesses[missedChances] = guess;
+                // System.out.println(Arrays.toString(missedGuesses));
+                missedChances++;
+            }
+            
 
-            // }
-            
-            
-            
-            
-            break;
         }
 
         
@@ -159,6 +164,14 @@ public class Hangman {
             }
         }
         return false;
+    }
+
+    public static void updatePlaceholders(char guess, char[] placeholder, String word) {
+        for (int i = 0; i < placeholder.length; i++) {
+            if (guess == word.charAt(i)) {
+                placeholder[i] = guess;
+            }
+        }
     }
 
 }
