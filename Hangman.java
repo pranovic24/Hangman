@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Hangman {
 
     public static String[] words = {"ant", "baboon", "badger", "bat", "bear", "beaver", "camel",
@@ -68,11 +70,22 @@ public class Hangman {
 
     public static void main(String[] args) {
 
+        Scanner scan = new Scanner(System.in);
+        
+
+
+        scan.close();
 
 
 
 
 
+    }
+
+    public static String randomWord() {
+        int numOfWords = words.length;
+        int wordIndex = (int) (Math.random() * numOfWords);
+        return words[wordIndex];
     }
 
 }
