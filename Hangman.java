@@ -90,7 +90,7 @@ public class Hangman {
             // Print Gallows
             System.out.println(gallows[missedChances]);
             // for testing
-            System.out.println(word);
+            // System.out.println(word);
 
             // Print Word placeholder
             System.out.print("Word:\t");
@@ -127,26 +127,15 @@ public class Hangman {
                 System.out.println("GOOD WORK!");
                 break;
             }
-
-            
-
         }
 
-        
+        if (missedChances == lives) {
+            System.out.println(gallows[missedChances]);
+            System.out.println("RIP!");
+            System.out.println("The word was '" + word + "'");
+        }
 
-
-        
-        
-
-
-        
-        
-        
         scan.close();
-
-
-
-
 
     }
 
