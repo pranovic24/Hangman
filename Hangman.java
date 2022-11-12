@@ -80,6 +80,29 @@ public class Hangman {
             placeholders[i] = '_';
         }
 
+        int missedChances = 0;
+        int lives = gallows.length - 1; 
+        // lives/turns are 6
+        char[] missedGuesses = new char[lives];
+
+        while (missedChances < lives) {
+            // Print Gallows
+            System.out.println(gallows[missedChances]);
+
+            // Print Word placeholder
+            System.out.print("Word:\t");
+            printPlaceholders(placeholders);
+            System.out.print("\n");
+
+            // Print Misses
+            System.out.print("Misses:\t");
+            printMissedGuesses(missedGuesses);
+            System.out.print("\n");
+            break;
+        }
+
+
+        
         
 
 
@@ -105,6 +128,12 @@ public class Hangman {
             System.out.print(placeholders[i] + " ");
         }
         System.out.print("\n");
+    }
+
+    public static void printMissedGuesses(char[] missedGuesses) {
+        for (int i = 0; i < missedGuesses.length; i++) {
+            System.out.print(missedGuesses[i]);
+        }
     }
 
 }
