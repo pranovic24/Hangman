@@ -98,8 +98,24 @@ public class Hangman {
             System.out.print("Misses:\t");
             printMissedGuesses(missedGuesses);
             System.out.print("\n");
+
+            System.out.print("Guess:\t");
+            // there is no scan.nextChar
+            char guess = scan.nextLine().charAt(0);
+            System.out.print("\n");
+            
+            // Checking guess with the word
+            // if (checkGuess(word, guess)) {
+
+            // }
+            
+            
+            
+            
             break;
         }
+
+        
 
 
         
@@ -134,6 +150,15 @@ public class Hangman {
         for (int i = 0; i < missedGuesses.length; i++) {
             System.out.print(missedGuesses[i]);
         }
+    }
+
+    public static boolean checkGuess(String word, char guess) {
+        for (int i = 0; i < word.length(); i++) {
+            if (guess == word.charAt(i)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
